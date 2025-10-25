@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stages('checkout code') {
+            steps {
+                checkout scm
+            }
+        }
+        stages('extrxt Data')
+        steps{
+            bat "extract_data.py"
+        }
+    }
+}
