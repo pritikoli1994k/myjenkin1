@@ -1,14 +1,18 @@
 pipeline {
     agent any
+
     stages {
-        stages('checkout code') {
+        stage('Checkout Code') {
             steps {
                 checkout scm
             }
         }
-        stages('extrxt Data')
-        steps{
-            bat "C:\Users\tanuj\AppData\Local\Programs\Python\Python313\python.exe"
+
+        stage('Extract Data') {
+            steps {
+                // Replace script_path.py with your actual Python script
+                bat '"C:\\Users\\tanuj\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" "D:\Priti_Data\AVD\DataOps\githubdemo2\myjenkin1\extract_data.py"'
+            }
         }
     }
 }
